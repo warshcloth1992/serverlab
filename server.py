@@ -37,7 +37,7 @@ def say_hello():
         <a  href="url">http://localhost:5000/hello</a>
           What's your name? <input type="text" name="person">
           <input type="submit" value="Submit">
-        <select name="complement">
+        <select name="compliment">
           <option value="a poop head">POOPOO</option>
           <option value="a wet blanket">soggy</option>
           <option value="LUMP">LUMP</option>
@@ -55,9 +55,7 @@ def greet_person():
 
     player = request.args.get("person")
 
-    compliment = choice(AWESOMENESS)
-
-   
+    compliment = request.args.get("compliment")
 
     return """
     <!doctype html>
@@ -70,7 +68,7 @@ def greet_person():
       </body>
     </html>
     """.format(player, compliment)
-
+   
 
 if __name__ == "__main__":
     # debug=True gives us error messages in the browser and also "reloads"
